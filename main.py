@@ -23,9 +23,10 @@ def download_youtube_video(url, output_path="downloads"):
         video = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
         filename = video.default_filename
         video.download(output_path)
-        print(f"Video downloaded and saved as: {os.path.join(output_path, video.default_filename)}")
+        print(f"Video downloaded and saved as: {os.path.join(output_path, filename)}")
     except Exception as e:
         print(f"Error: {e}")
+        exit(-1)
 
     return os.path.join(output_path, filename)
 
