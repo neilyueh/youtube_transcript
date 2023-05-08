@@ -17,9 +17,15 @@ def download_youtube_video(url, output_path="downloads"):
     if not os.path.exists(output_path):
         os.makedirs(output_path)
 
+    # you should be able to fix streamerror issue by
+    # pip uninstall pytube
+    # pip uninstall pytube3
+    # python -m pip install git+https://github.com/nficano/pytube
+
     filename = ""
     try:
         yt = YouTube(url)
+        # python -m pip install git+https://github.com/nficano/pytube
         video = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
         filename = video.default_filename
         video.download(output_path)
