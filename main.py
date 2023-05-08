@@ -1,4 +1,5 @@
 # conda update -n base -c defaults conda
+# SET PATH=%PATH%;C:\Users\neily\AppData\Roaming\Python\Python39\Scripts
 
 import openai
 import pydub
